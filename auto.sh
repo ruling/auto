@@ -27,12 +27,6 @@ echo "进行系统更新"
 echo
 sudo apt-get update
 
-if [ ${SKIP} = 1 ]; then
-  echo "Unattended installation. skipping pause..."
-else
-  read -p "Press [Enter] key to continue..."
-fi
-
 clear
 
 echo
@@ -96,7 +90,7 @@ echo
 wget  --no-check-certificate --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "http://download.oracle.com/otn-pub/java/jdk/6u45-b06/jdk-6u45-linux-x64.bin"
 chmod +x jdk-6u45-linux-x64.bin
 sudo ./jdk-6u45-linux-x64.bin
-sudo mv jdk1.6.0_45 /usr/lib/jvm/
+sudo mv jdk1.6.0_45 /usr/lib/jvm/jdk1.6.0_45
 sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.6.0_45/bin/java 1
 sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.6.0_45/bin/javac 1
 sudo update-alternatives --install /usr/bin/javaws javaws /usr/lib/jvm/jdk1.6.0_45/bin/javaws 1
