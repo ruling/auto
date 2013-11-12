@@ -4,7 +4,7 @@
 - 在鼠标右键中加入终端快捷方式
 - 集成必备库以及其他必备内容
 - 集成51-android.rules
-- 集成ccache-3.1.9
+- 集成ccache-3. 1
 - 集成python2.5
 - 集成 GNU Make
 - 安装repo
