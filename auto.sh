@@ -82,9 +82,9 @@ clear
 echo
 echo "安装 GNU Make!"
 echo
-wget http://ftp.gnu.org/gnu/make/make-4.0.tar.gz
-tar -xvzf make-4.0.tar.gz
-cd ~/Downloads/make-4.0
+wget http://ftp.gnu.org/gnu/make/make-3.81.tar.gz
+tar -xvzf make-3.81.tar.gz
+cd ~/Downloads/make-3.81
 ./configure
 sudo make install -j${JOBS}
 cd ~/
@@ -251,8 +251,8 @@ clear
 echo
 echo "清除临时文件..."
 echo
-rm -f ~/Downloads/make-4.0.tar.gz
-rm -Rf ~/Downloads/make-4.0
+rm -f ~/Downloads/make-3.81.tar.gz
+rm -Rf ~/Downloads/make-3.81
 rm -f ~/jdk-6u45-linux-x64.bin
 rm -f ~/Downloads/ccache-3.1.tar.gz
 rm -Rf ~/Downloads/ccache-3.1
@@ -271,7 +271,7 @@ clear
 echo
 echo "完成!"
 echo
-echo "感谢使用本的脚本!"
+echo "感谢使用本脚本!"
 echo
 read -p "按回车键退出..."
 exit
