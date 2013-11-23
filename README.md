@@ -8,7 +8,7 @@
 
 - 集成51-android.rules
 
--移除smarthosts
+- 移除smarthosts
 
 - 更新ccache到3.1
 
