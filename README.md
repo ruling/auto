@@ -12,15 +12,13 @@
 
 - 更新ccache到3.1
 
-- 集成python2.5
+- 更新python到3.3.2
 
-- 集成 GNU Make3.8.1
+- 更新GNU Make到3.8.2
 
 - 集成安卓厨房
 
-- 集成Apktool
-
-- 集成repo
+- 解决repo无法下载问题（感谢laser杨万荣）
 
 - 集成JDK
 
