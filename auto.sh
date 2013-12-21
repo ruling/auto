@@ -42,13 +42,13 @@ echo
 echo "安装 Python!"
 echo
 sudo apt-get install build-essential gcc $PARAM
-wget http://www.python.org/ftp/python/2.5.6/Python-2.5.6.tgz
-tar -xvzf Python-2.5.6.tgz
-cd ~/Downloads/Python-2.5.6
-./configure --prefix=/usr/local/python2.5
+wget http://www.python.org/ftp/python/3.3.2/Python-3.3.2.tgz
+tar -xvzf Python-3.3.2.tgz
+cd Python-3.3.2
+./configure --prefix=/usr/local/python3.3
 make -j${JOBS}
 sudo make install -j${JOBS}
-sudo ln -s /usr/local/python2.5/bin/python /usr/bin/python2.5
+sudo ln -s /usr/local/python3.3/bin/python /usr/bin/python3.3
 cd ~/Downloads
 
 if [ ${SKIP} = 1 ]; then
@@ -82,9 +82,9 @@ clear
 echo
 echo "安装 GNU Make!"
 echo
-wget http://ftp.gnu.org/gnu/make/make-3.81.tar.gz
-tar -xvzf make-3.81.tar.gz
-cd ~/Downloads/make-3.81
+wget http://ftp.gnu.org/gnu/make/make-3.82.tar.gz
+tar -xvzf make-3.82.tar.gz
+cd ~/Downloads/make-3.82
 ./configure
 sudo make install -j${JOBS}
 cd ~/
@@ -123,9 +123,8 @@ sudo apt-get install git-core gnupg flex bison gperf build-essential \
 zip curl zlib1g-dev libc6-dev libncurses5-dev x11proto-core-dev \
 libx11-dev libreadline6-dev libgl1-mesa-dev tofrodos python-markdown \
 libxml2-utils xsltproc pngcrush gcc-multilib lib32z1 schedtool \
-libqt4-gui libqt4-core libqt4-dev lib32stdc++6 libx11-dev:i386 \
-pngcrush schedtool g++-multilib lib32z1-dev lib32ncurses5-dev \
-ia32-libs mingw32 lib32z-dev $PARAM
+libqt4-dev lib32stdc++6 libx11-dev:i386 g++-multilib lib32z1-dev \
+lib32ncurses5-dev ia32-libs mingw32 lib32z-dev $PARAM
 
 if [ ${SKIP} = 1 ]; then
 echo "无人值守安装. 按任意键暂停..."
@@ -211,25 +210,6 @@ fi
 clear
 
 echo
-echo "安装 APKTool"
-echo
-wget http://android-apktool.googlecode.com/files/apktool1.5.2.tar.bz2
-tar -jxf apktool1.5.2.tar.bz2
-mv -f apktool1.5.2/apktool.jar ~/bin/apktool.jar
-wget http://android-apktool.googlecode.com/files/apktool-install-linux-r05-ibot.tar.bz2
-tar -jxf apktool-install-linux-r05-ibot.tar.bz2
-mv -f apktool-install-linux-r05-ibot/aapt ~/bin/aapt
-mv -f apktool-install-linux-r05-ibot/apktool ~/bin/apktool
-
-if [ ${SKIP} = 1 ]; then
-echo "无人值守安装. 按任意键暂停..."
-else
-read -p "按回车键继续..."
-fi
-
-clear
-
-echo
 echo "安装 安卓厨房"
 echo
 wget https://github.com/dsixda/Android-Kitchen/archive/master.zip
@@ -238,7 +218,7 @@ mv -f Android-Kitchen-master ~/Android-Kitchen
 echo -e '\n#!/bin/bash\ncd ~/Android-Kitchen\n./menu' >> ~/Android-Kitchen/kitchen
 chmod 755 ~/Android-Kitchen/kitchen
 ln -s ~/Android-Kitchen/kitchen ~/bin/kitchen
-ln -s ~/Android-Kitchen/kitchen ~/桌面/Android-Kitchen
+ln -s ~/Android-Kitchen/kitchen ~/桌面/安卓厨房
 
 if [ ${SKIP} = 1 ]; then
 echo "无人值守安装. 按任意键暂停..."
@@ -251,8 +231,10 @@ clear
 echo
 echo "清除临时文件..."
 echo
-rm -f ~/Downloads/make-3.81.tar.gz
-rm -Rf ~/Downloads/make-3.81
+rm -f ~/Downloads/Python-3.3.2.tgz
+rm -rf ~/Downloads/Python-3.3.2
+rm -f ~/Downloads/make-3.82.tar.gz
+rm -Rf ~/Downloads/make-3.82
 rm -f ~/jdk-6u45-linux-x64.bin
 rm -f ~/Downloads/ccache-3.1.tar.gz
 rm -Rf ~/Downloads/ccache-3.1
@@ -262,9 +244,6 @@ rm -f ~/adt-bundle/adt_x64.zip
 rm -f ~/adt-bundle/adt_x86.zip
 rm -f ~/Downloads/master.zip
 rm -f ~/Downloads/apktool1.5.2.tar.bz2
-rm -Rf ~/Downloads/apktool1.5.2
-rm -f ~/Downloads/apktool-install-linux-r05-ibot.tar.bz2
-rm -Rf ~/Downloads/apktool-install-linux-r05-ibot
 
 clear
 
