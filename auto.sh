@@ -11,7 +11,7 @@ else
 fi
 
 echo " 安卓开发环境自动配置脚本 "
-echo " 作者：Rulin "
+echo "作者：Ruling."
 
 clear
 
@@ -44,7 +44,7 @@ echo
 sudo apt-get install build-essential gcc $PARAM
 wget http://www.python.org/ftp/python/3.3.2/Python-3.3.2.tgz
 tar -xvzf Python-3.3.2.tgz
-cd Python-3.3.2
+cd ~/Downloads/Python-3.3.2
 ./configure --prefix=/usr/local/python3.3
 make -j${JOBS}
 sudo make install -j${JOBS}
@@ -212,6 +212,7 @@ clear
 echo
 echo "安装 安卓厨房"
 echo
+cd ~/Downloads
 wget https://github.com/dsixda/Android-Kitchen/archive/master.zip
 unzip master.zip
 mv -f Android-Kitchen-master ~/Android-Kitchen
@@ -232,7 +233,8 @@ echo
 echo "清除临时文件..."
 echo
 rm -f ~/Downloads/Python-3.3.2.tgz
-sudo chmod 777 ~/Downloads/Python-3.3.2/Lib/plat-linux3
+sudo chmod 777 ~/Downloads/Python-3.3.2/Lib/lib2to3/__pycache__
+sudo chmod 777 ~/Downloads/Python-3.3.2/Lib/logging/__pycache__
 rm -rf ~/Downloads/Python-3.3.2
 rm -f ~/Downloads/make-3.82.tar.gz
 rm -Rf ~/Downloads/make-3.82
@@ -244,7 +246,6 @@ rm -Rf ~/adt-bundle/adt-bundle-linux-x86-20131030
 rm -f ~/adt-bundle/adt_x64.zip
 rm -f ~/adt-bundle/adt_x86.zip
 rm -f ~/Downloads/master.zip
-rm -f ~/Downloads/apktool1.5.2.tar.bz2
 
 clear
 
