@@ -232,6 +232,7 @@ echo
 echo "清除临时文件..."
 echo
 rm -f ~/Downloads/Python-3.3.2.tgz
+sudo chmod 777 ~/Downloads/Python-3.3.2/Lib/plat-linux3
 rm -rf ~/Downloads/Python-3.3.2
 rm -f ~/Downloads/make-3.82.tar.gz
 rm -Rf ~/Downloads/make-3.82
