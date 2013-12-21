@@ -152,7 +152,7 @@ echo
 if [ ! -d ~/bin ]; then
   mkdir -p ~/bin
 fi
-curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+curl https://raw.github.com/ossxp-com/repo/upstream/repo > ~/bin/repo
 chmod a+x ~/bin/repo
 
 echo
