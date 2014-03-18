@@ -62,9 +62,9 @@ clear
 echo
 echo "安装 CCache!"
 echo
-wget http://www.samba.org/ftp/ccache/ccache-3.1.tar.gz
-tar -xvzf ccache-3.1.tar.gz
-cd ~/Downloads/ccache-3.1
+wget http://www.samba.org/ftp/ccache/ccache-3.1.9.tar.gz
+tar -xvzf ccache-3.1.9.tar.gz
+cd ~/Downloads/ccache-3.1.9
 ./configure
 make -j${JOBS}
 sudo make install -j${JOBS}
@@ -151,7 +151,7 @@ echo
 if [ ! -d ~/bin ]; then
   mkdir -p ~/bin
 fi
-curl https://raw.github.com/ossxp-com/repo/upstream/repo > ~/bin/repo
+curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 chmod a+x ~/bin/repo
 
 echo
@@ -233,15 +233,12 @@ echo
 echo "清除临时文件..."
 echo
 rm -f ~/Downloads/Python-3.3.2.tgz
-sudo chmod 777 ~/Downloads/Python-3.3.2/Lib/lib2to3/pgen2/__pycache__
-sudo chmod 777 ~/Downloads/Python-3.3.2/Lib/lib2to3/__pycache__
-sudo chmod 777 ~/Downloads/Python-3.3.2/Lib/logging/__pycache__
-rm -rf ~/Downloads/Python-3.3.2
+sudo rm -rf ~/Downloads/Python-3.3.2
 rm -f ~/Downloads/make-3.82.tar.gz
 rm -Rf ~/Downloads/make-3.82
 rm -f ~/jdk-6u45-linux-x64.bin
-rm -f ~/Downloads/ccache-3.1.tar.gz
-rm -Rf ~/Downloads/ccache-3.1
+rm -f ~/Downloads/ccache-3.1.9.tar.gz
+rm -Rf ~/Downloads/ccache-3.1.9
 rm -Rf ~/adt-bundle/adt-bundle-linux-x86_64-20131030
 rm -Rf ~/adt-bundle/adt-bundle-linux-x86-20131030
 rm -f ~/adt-bundle/adt_x64.zip
