@@ -101,11 +101,16 @@ echo
 echo "安装 JDK 6!"
 echo
 wget  --no-check-certificate --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "http://download.oracle.com/otn-pub/java/jdk/6u45-b06/jdk-6u45-linux-x64.bin"
-sudo mv jdk-6u45-linux-x64.bin /usr/
-cd /usr
-sudo chmod 755 jdk-6u45-linux-x64.bin
+chmod +x jdk-6u45-linux-x64.bin
 sudo ./jdk-6u45-linux-x64.bin
-echo -e '\n# Java\nexport JAVA_HOME=/usr/jdk1.6.0_45\nexport JRE_HOME=/usr/jdk1.6.0_45/jre\nexport PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$JAVA_HOME/bin\nexport CLASSPATH=./:$JAVA_HOME/lib:$JAVA_HOME/jre/lib' >> ~/.profile
+sudo mkdir /usr/lib/jvm
+sudo mv jdk1.6.0_45 /usr/lib/jvm/
+sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.6.0_45/bin/java 1
+sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.6.0_45/bin/javac 1
+sudo update-alternatives --install /usr/bin/javaws javaws /usr/lib/jvm/jdk1.6.0_45/bin/javaws 1
+sudo update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/jdk1.6.0_45/bin/jar 1
+sudo update-alternatives --install /usr/bin/javadoc javadoc /usr/lib/jvm/jdk1.6.0_45/bin/javadoc 1
+java -version
 cd ~/
 
 if [ ${SKIP} = 1 ]; then
