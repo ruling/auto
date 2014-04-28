@@ -69,6 +69,7 @@ cd ~/Downloads/ccache-3.1.9
 make -j${JOBS}
 sudo make install -j${JOBS}
 echo "export USE_CCACHE=1" >> ~/.bashrc
+ccache -M 25G
 cd ~/Downloads
 
 if [ ${SKIP} = 1 ]; then
