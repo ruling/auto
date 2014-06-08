@@ -55,8 +55,8 @@ sudo mv -f 51-android.rules /etc/udev/rules.d/51-android.rules
 sudo chmod 644 /etc/udev/rules.d/51-android.rules
 
 echo
-echo "正在下载 Linux 32位 系统的Android SDK"
-        wget http://dl.google.com/android/adt/adt-bundle-linux-x86-20131030.zip
+echo "正在下载 Linux 64位 系统的Android SDK"
+        wget http://dl.google.com/android/adt/adt-bundle-linux-x86_64-20131030.zip
 echo "下载完成!!"
 echo "展开文件"
 	mkdir ~/adt-bundle
