@@ -86,7 +86,6 @@ echo "清除临时文件..."
 echo
 rm -f ~/jdk-6u45-linux-x64.bin
 rm -Rf ~/adt-bundle/adt-bundle-linux-x86_64-20131030
-rm -Rf ~/vmware-tools-distrib
 rm -f ~/adt-bundle/adt_x64.zip
 
 echo
