@@ -11,7 +11,7 @@ else
 fi
 
 echo
-echo "安装 JDK 6!"
+echo "安装 JDK!"
 echo
 sudo apt-get update
 sudo apt-get install openjdk-7-jdk
