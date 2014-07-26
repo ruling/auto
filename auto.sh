@@ -177,14 +177,14 @@ if [ `getconf LONG_BIT` = "64" ]
 then
 echo
 echo "正在下载 Linux 64位 系统的Android SDK"
-        wget http://dl.google.com/android/adt/adt-bundle-linux-x86_64-20131030.zip
+        wget http://dl.google.com/android/adt/adt-bundle-linux-x86_64-20140702.zip
 echo "下载完成!!"
 echo "展开文件"
 	mkdir ~/adt-bundle
-        mv adt-bundle-linux-x86_64-20131030.zip ~/adt-bundle/adt_x64.zip
+        mv adt-bundle-linux-x86_64-20140702.zip ~/adt-bundle/adt_x64.zip
         cd ~/adt-bundle
         unzip adt_x64.zip
-        mv -f adt-bundle-linux-x86_64-20131030/* .
+        mv -f adt-bundle-linux-x86_64-20140702/* .
 echo "正在配置"
         echo -e '\n# Android tools\nexport PATH=${PATH}:~/adt-bundle/sdk/tools\nexport PATH=${PATH}:~/adt-bundle/sdk/platform-tools\nexport PATH=${PATH}:~/bin' >> ~/.bashrc
         echo -e '\nPATH="$HOME/adt-bundle/sdk/tools:$HOME/adt-bundle/sdk/platform-tools:$PATH"' >> ~/.profile
@@ -193,14 +193,14 @@ else
 
 echo
 echo "正在下载 Linux 32位 系统的Android SDK"
-        wget http://dl.google.com/android/adt/adt-bundle-linux-x86-20131030.zip
+        wget http://dl.google.com/android/adt/adt-bundle-linux-x86-20140702.zip
 echo "下载完成!!"
 echo "展开文件"
         mkdir ~/adt-bundle
-        mv adt-bundle-linux-x86-20131030.zip ~/adt-bundle/adt_x86.zip
+        mv adt-bundle-linux-x86-20140702.zip ~/adt-bundle/adt_x86.zip
         cd ~/adt-bundle
         unzip adt_x86.zip
-        mv -f adt-bundle-linux-x86_64-20131030/* .
+        mv -f adt-bundle-linux-x86_64-20140702/* .
 echo "正在配置"
         echo -e '\n# Android tools\nexport PATH=${PATH}:~/adt-bundle/sdk/tools\nexport PATH=${PATH}:~/adt-bundle/sdk/platform-tools\nexport PATH=${PATH}:~/bin' >> ~/.bashrc
         echo -e '\nPATH="$HOME/adt-bundle/sdk/tools:$HOME/adt-bundle/sdk/platform-tools:$PATH"' >> ~/.profile
@@ -245,8 +245,8 @@ rm -Rf ~/Downloads/make-3.82
 rm -f ~/jdk-6u45-linux-x64.bin
 rm -f ~/Downloads/ccache-3.1.9.tar.gz
 rm -Rf ~/Downloads/ccache-3.1.9
-rm -Rf ~/adt-bundle/adt-bundle-linux-x86_64-20131030
-rm -Rf ~/adt-bundle/adt-bundle-linux-x86-20131030
+rm -Rf ~/adt-bundle/adt-bundle-linux-x86_64-20140702
+rm -Rf ~/adt-bundle/adt-bundle-linux-x86-20140702
 rm -f ~/adt-bundle/adt_x64.zip
 rm -f ~/adt-bundle/adt_x86.zip
 rm -f ~/Downloads/master.zip
