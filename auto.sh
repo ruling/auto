@@ -161,8 +161,13 @@ echo
 if [ ! -d ~/bin ]; then
   mkdir -p ~/bin
 fi
-curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+cp -arf repo ~/bin/repo
 chmod a+x ~/bin/repo
+
+echo
+echo "安装 Hosts"
+echo
+sudo cp -arf hosts /etc/hosts
 
 echo
 echo "安装 ADB 驱动!"
