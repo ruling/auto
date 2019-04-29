@@ -60,81 +60,26 @@ fi
 clear
 
 echo
-echo "安装 CCache!"
-echo
-wget http://www.samba.org/ftp/ccache/ccache-3.1.9.tar.gz
-tar -xvzf ccache-3.1.9.tar.gz
-cd ~/Downloads/ccache-3.1.9
-./configure
-make -j${JOBS}
-sudo make install -j${JOBS}
-echo "export USE_CCACHE=1" >> ~/.bashrc
-ccache -M 25G
-cd ~/Downloads
-
-if [ ${SKIP} = 1 ]; then
-echo "无人值守安装. 按任意键暂停..."
-else
-read -p "按回车键继续..."
-fi
-
-clear
-
-echo
-echo "安装 GNU Make!"
-echo
-wget http://ftp.gnu.org/gnu/make/make-3.82.tar.gz
-tar -xvzf make-3.82.tar.gz
-cd ~/Downloads/make-3.82
-./configure
-sudo make install -j${JOBS}
-cd ~/
-
-if [ ${SKIP} = 1 ]; then
-echo "无人值守安装. 按任意键暂停..."
-else
-read -p "按回车键继续..."
-fi
-
-clear
-
-echo
-echo "安装 JDK 6!"
-echo
-wget  --no-check-certificate --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "http://download.oracle.com/otn-pub/java/jdk/6u45-b06/jdk-6u45-linux-x64.bin"
-chmod +x jdk-6u45-linux-x64.bin
-sudo ./jdk-6u45-linux-x64.bin
-sudo mkdir /usr/lib/jvm
-sudo mv jdk1.6.0_45 /usr/lib/jvm/
-sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.6.0_45/bin/java 1
-sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.6.0_45/bin/javac 1
-sudo update-alternatives --install /usr/bin/javaws javaws /usr/lib/jvm/jdk1.6.0_45/bin/javaws 1
-sudo update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/jdk1.6.0_45/bin/jar 1
-sudo update-alternatives --install /usr/bin/javadoc javadoc /usr/lib/jvm/jdk1.6.0_45/bin/javadoc 1
-java -version
-cd ~/
-
-if [ ${SKIP} = 1 ]; then
-echo "无人值守安装. 按任意键暂停..."
-else
-read -p "按回车键继续..."
-fi
-
-clear
-
-echo
-echo "安装其他要求资源包!"
+echo "安装资源包!"
 echo
 sudo apt-get update
-sudo apt-get install git gnupg flex bison gperf build-essential \
-zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev \
-libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 \
-libgl1-mesa-dev g++-multilib mingw32 tofrodos \
-python-markdown libxml2-utils xsltproc zlib1g-dev:i386 \
-android-tools-adb android-tools-fastboot libcloog-isl-dev \
-texinfo gcc-multilib schedtool libxml2-utils libxml2 $PARAM
+sudo apt-get apt-get install git ccache automake lzop bison gperf build-essential zip curl zlib1g-dev zlib1g-dev:i386 g++-multilib python-networkx libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng maven bc pngquant imagemagick yasm libssl-dev
+echo “export USE_CCACHE=1” >> ~/.bashrc
 
-sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
+if [ ${SKIP} = 1 ]; then
+echo "无人值守安装. 按任意键暂停..."
+else
+read -p "按回车键继续..."
+fi
+
+clear
+
+echo
+echo "安装 JDK 8!"
+echo
+sudo apt-get install openjdk-8-jdk
+java -version
+cd ~/
 
 if [ ${SKIP} = 1 ]; then
 echo "无人值守安装. 按任意键暂停..."
@@ -151,23 +96,16 @@ sudo apt-get install nautilus-open-terminal $PARAM
 nautilus -q
 
 echo
-echo "安装 GIT!"
-echo
-sudo apt-get install git $PARAM
-
-echo
 echo "安装 Repo"
 echo
 if [ ! -d ~/bin ]; then
   mkdir -p ~/bin
 fi
-cp -arf repo ~/bin/repo
+
+curl https://storage.googleapis.com/git-repo-downloads/repo 20 > ~/bin/repo
 chmod a+x ~/bin/repo
 
-echo
-echo "安装 Hosts"
-echo
-sudo cp -arf hosts /etc/hosts
+echo “export PATH=~/bin:$PATH” >> ~/.bashrc
 
 echo
 echo "安装 ADB 驱动!"
@@ -225,35 +163,8 @@ fi
 clear
 
 echo
-echo "安装 安卓厨房"
-echo
-cd ~/Downloads
-wget https://github.com/dsixda/Android-Kitchen/archive/master.zip
-unzip master.zip
-mv -f Android-Kitchen-master ~/Android-Kitchen
-echo -e '\n#!/bin/bash\ncd ~/Android-Kitchen\n./menu' >> ~/Android-Kitchen/kitchen
-chmod 755 ~/Android-Kitchen/kitchen
-ln -s ~/Android-Kitchen/kitchen ~/bin/kitchen
-ln -s ~/Android-Kitchen/kitchen ~/桌面/安卓厨房
-
-if [ ${SKIP} = 1 ]; then
-echo "无人值守安装. 按任意键暂停..."
-else
-read -p "按回车键继续..."
-fi
-
-clear
-
-echo
 echo "清除临时文件..."
 echo
-rm -f ~/Downloads/Python-3.3.2.tgz
-sudo rm -rf ~/Downloads/Python-3.3.2
-rm -f ~/Downloads/make-3.82.tar.gz
-rm -Rf ~/Downloads/make-3.82
-rm -f ~/jdk-6u45-linux-x64.bin
-rm -f ~/Downloads/ccache-3.1.9.tar.gz
-rm -Rf ~/Downloads/ccache-3.1.9
 rm -Rf ~/adt-bundle/adt-bundle-linux-x86_64-20140702
 rm -Rf ~/adt-bundle/adt-bundle-linux-x86-20140702
 rm -f ~/adt-bundle/adt_x64.zip
